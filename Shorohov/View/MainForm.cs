@@ -1,4 +1,4 @@
-using Shorohov.Service;
+п»їusing Shorohov.Service;
 using System.ComponentModel.Design;
 
 namespace Shorohov
@@ -6,16 +6,16 @@ namespace Shorohov
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Цвет корректного значения.
+        /// Р¦РІРµС‚ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ.
         /// </summary>
         private readonly Color _correctColor = Color.White;
 
         /// <summary>
-        /// Цвет некорректного значения.
+        /// Р¦РІРµС‚ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ.
         /// </summary>
         private readonly Color _errorColor = Color.LightPink;
 
-        // Все переменные в программе
+        // Р’СЃРµ РїРµСЂРµРјРµРЅРЅС‹Рµ РІ РїСЂРѕРіСЂР°РјРјРµ
         private double Vout;
         private double Vin_min;
         private double Vin_max;
@@ -37,10 +37,10 @@ namespace Shorohov
         }
 
         /// <summary>
-        /// Проверка на правильность ввода данных
+        /// РџСЂРѕРІРµСЂРєР° РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРІРѕРґР° РґР°РЅРЅС‹С…
         /// </summary>
-        /// <returns>true если все данные введены верно <br/>
-        ///          false если данные введены неверно</returns>
+        /// <returns>true РµСЃР»Рё РІСЃРµ РґР°РЅРЅС‹Рµ РІРІРµРґРµРЅС‹ РІРµСЂРЅРѕ <br/>
+        ///          false РµСЃР»Рё РґР°РЅРЅС‹Рµ РІРІРµРґРµРЅС‹ РЅРµРІРµСЂРЅРѕ</returns>
         public bool CheckingAllValues()
         {
             if (
@@ -57,7 +57,7 @@ namespace Shorohov
         }
 
         /// <summary>
-        /// Считывание данных из полей технических характеристик
+        /// РЎС‡РёС‚С‹РІР°РЅРёРµ РґР°РЅРЅС‹С… РёР· РїРѕР»РµР№ С‚РµС…РЅРёС‡РµСЃРєРёС… С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє
         /// </summary>
         public void ReadingData()
         {
@@ -69,7 +69,7 @@ namespace Shorohov
         }
 
         /// <summary>
-        /// Расчет выходных параметров
+        /// Р Р°СЃС‡РµС‚ РІС‹С…РѕРґРЅС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ
         /// </summary>
         public void CalculationValues()
         {
@@ -80,18 +80,18 @@ namespace Shorohov
         }
 
         /// <summary>
-        /// Обновление лэйблов выходных параметров
+        /// РћР±РЅРѕРІР»РµРЅРёРµ Р»СЌР№Р±Р»РѕРІ РІС‹С…РѕРґРЅС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ
         /// </summary>
         public void UpdatingLabels()
         {
             NpNs_Label.Text = NpNs.ToString();
             MMax_Label.Text = M_max.ToString();
             MMin_Label.Text = M_min.ToString();
-            RacMin_Label.Text = Rac_min.ToString() + " Ом";
+            RacMin_Label.Text = Rac_min.ToString() + " РћРј";
         }
 
         /// <summary>
-        /// Перекраска textbox в зависимости от введенных данных
+        /// РџРµСЂРµРєСЂР°СЃРєР° textbox РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІРІРµРґРµРЅРЅС‹С… РґР°РЅРЅС‹С…
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -115,7 +115,7 @@ namespace Shorohov
         }
 
         /// <summary>
-        /// Логика кнопки "Расчитать"
+        /// Р›РѕРіРёРєР° РєРЅРѕРїРєРё "Р Р°СЃС‡РёС‚Р°С‚СЊ"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -127,7 +127,7 @@ namespace Shorohov
                 CalculationValues();
                 UpdatingLabels();
             }
-            else MessageBox.Show("Введены некоректные значения или не введены совсем.");
+            else MessageBox.Show("Р’РІРµРґРµРЅС‹ РЅРµРєРѕСЂРµРєС‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РёР»Рё РЅРµ РІРІРµРґРµРЅС‹ СЃРѕРІСЃРµРј.");
         }
     }
 }
