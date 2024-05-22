@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorohov", "Shorohov\Shorohov.csproj", "{963CE1C4-8FDE-449F-AB0E-057621C906E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{963CE1C4-8FDE-449F-AB0E-057621C906E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963CE1C4-8FDE-449F-AB0E-057621C906E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963CE1C4-8FDE-449F-AB0E-057621C906E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963CE1C4-8FDE-449F-AB0E-057621C906E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA2FCA4F-6113-4CB0-9C9F-D7CFF0DFA9FD}
+	EndGlobalSection
+EndGlobal
