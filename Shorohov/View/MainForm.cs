@@ -16,6 +16,7 @@ namespace Shorohov
         private readonly Color _errorColor = Color.LightPink;
 
         // Все переменные в программе
+        // Технические параметры
         private double Vout;
         private double Vin_min;
         private double Vin_max;
@@ -24,6 +25,7 @@ namespace Shorohov
         private double f;
         private double m;
         //-----------------------
+        // Рассчитанные параметры
         private double NpNs;
         private double Rn;
         private double Rac;
@@ -36,6 +38,14 @@ namespace Shorohov
         {
             InitializeComponent();
 
+            NULL_Labels();
+        }
+
+        /// <summary>
+        /// Делает labels пустыми в рассчитываемых параметрах
+        /// </summary>
+        public void NULL_Labels()
+        {
             NpNs_Label.Text = "";
             Q_Label.Text = "";
             Rn_Label.Text = "";
@@ -146,7 +156,11 @@ namespace Shorohov
                 CalculationValues();
                 UpdatingLabels();
             }
-            else MessageBox.Show("Введены некоректные значения или не введены совсем.");
+            else 
+            {
+                NULL_Labels();
+                MessageBox.Show("Введены некоректные значения или не введены совсем.");
+            } 
         }
     }
 }
