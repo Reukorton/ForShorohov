@@ -20,7 +20,7 @@ namespace Shorohov.Service
         public static void AssertNumberIsNotNegative(double value, string propertyName)
         {
             if (value < 0)
-            {
+            { 
                 throw new ArgumentException(
                     $"{propertyName} не должно быть меньше 0");
             }
