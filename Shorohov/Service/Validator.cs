@@ -27,7 +27,7 @@ namespace Shorohov.Service
         }
 
         /// <summary>
-        /// Провнерка, что строка является вещественным числом
+        /// Проверка, что строка является вещественным числом
         /// </summary>
         /// <param name="value">Значение</param>
         /// <param name="propertyName">Название переменной</param>

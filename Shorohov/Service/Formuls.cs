@@ -12,42 +12,46 @@ namespace Shorohov.Service
     public static class Formuls
     {
         /// <summary>
-        /// Коэффициент усиления напряжения, const
-        /// </summary>
-        private const double Mnom = 1;
-
-        /// <summary>
         /// Формула расчета коэффициента трансформации трансформатора
         /// </summary>
         /// <param name="Vin_nom">Номинальное входное напряжение</param>
         /// <param name="Vout">Выходное напряжение</param>
         /// <returns>Коэффициент трансформации трансформатора</returns>
-        public static double NpNs(double Vin_nom, double Vout)
+        public static double NpNs(double Vin_max, double Vout)
         {
-            return Vin_nom / Vout * Mnom;
+            return Vin_max / Vout;
         }
 
-        /// <summary>
-        /// Формула расчета коэффициента усиления напряжения
-        /// </summary>
-        /// <param name="Vin_nom">Номинальное входное напряжение</param>
-        /// <param name="Vin">Входное напряжение</param>
-        /// <returns>Коэффициент усиления напряжения</returns>
-        public static double M(double Vin_nom, double Vin)
+        public static double Rn(double Vout, double Iout)
         {
-            return (Vin_nom / Vin) * Mnom;
+            return Vout / Iout;
         }
 
-        /// <summary>
-        /// Формула расчета сопротивления отраженной нагрузки
-        /// </summary>
-        /// <param name="NpNs">Коэффициент трансформации трансформатора</param>
-        /// <param name="Vout">Выходное напряжение</param>
-        /// <param name="Pout">Выходная мощность</param>
-        /// <returns>Сопротивление отраженной нагрузки</returns>
-        public static double Rac_min(double NpNs, double Vout, double Pout)
+        public static double Rac(double NpNs, double Rn)
         {
-            return (8 / Math.Pow(Math.PI, 2) * Math.Pow(NpNs, 2) * (Math.Pow(Vout, 2) / Pout));
+            return (8 * Math.Pow(NpNs, 2) * Rn) / Math.Pow(Math.PI, 2);
+        }
+
+        public static double Q(double NpNs, double Vout, double Vin_min, double m)
+        {
+            double temp = Math.Pow((2 * NpNs * (Vout / Vin_min)), 2);
+
+            return (1 / m) * Math.Sqrt((1 + m * (1 - (1 / temp))) / (temp - 1));
+        }
+
+        public static double Lr(double Q, double Rac, double f)
+        {
+            return (Q * Rac) / (2 * Math.PI * f);
+        }
+
+        public static double Cr(double f, double Q, double Rac)
+        {
+            return 1 / (2 * Math.PI * f * Q * Rac);
+        }
+
+        public static double Lm(double Lr, double m)
+        {
+            return Lr * m;
         }
     }
 }

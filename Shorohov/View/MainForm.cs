@@ -19,21 +19,30 @@ namespace Shorohov
         private double Vout;
         private double Vin_min;
         private double Vin_max;
-        private double Vin_nom;
+        private double Iout;
         private double Pout;
+        private double f;
+        private double m;
+        //-----------------------
         private double NpNs;
-        private double M_max;
-        private double M_min;
-        private double Rac_min;
+        private double Rn;
+        private double Rac;
+        private double Q;
+        private double Lr;
+        private double Cr;
+        private double Lm;
 
         public MainForm()
         {
             InitializeComponent();
 
             NpNs_Label.Text = "";
-            MMax_Label.Text = "";
-            MMin_Label.Text = "";
-            RacMin_Label.Text = "";
+            Q_Label.Text = "";
+            Rn_Label.Text = "";
+            Rac_Label.Text = "";
+            Lr_Label.Text = "";
+            Cr_Label.Text = "";
+            Lm_Label.Text = "";
         }
 
         /// <summary>
@@ -47,8 +56,10 @@ namespace Shorohov
                 Vout_TextBox.BackColor == _correctColor &&
                 VinMin_TextBox.BackColor == _correctColor &&
                 VinMax_TextBox.BackColor == _correctColor &&
-                VinNom_TextBox.BackColor == _correctColor &&
-                Pout_TextBox.BackColor == _correctColor
+                Iout_TextBox.BackColor == _correctColor &&
+                Pout_TextBox.BackColor == _correctColor &&
+                F_TextBox.BackColor == _correctColor &&
+                M_TextBox.BackColor == _correctColor
                 )
             {
                 return true;
@@ -64,8 +75,10 @@ namespace Shorohov
             Vout = double.Parse(Vout_TextBox.Text);
             Vin_min = double.Parse(VinMin_TextBox.Text);
             Vin_max = double.Parse(VinMax_TextBox.Text);
-            Vin_nom = double.Parse(VinNom_TextBox.Text);
+            Iout = double.Parse(Iout_TextBox.Text);
             Pout = double.Parse(Pout_TextBox.Text);
+            f = double.Parse(F_TextBox.Text);
+            m = double.Parse(M_TextBox.Text);
         }
 
         /// <summary>
@@ -73,10 +86,13 @@ namespace Shorohov
         /// </summary>
         public void CalculationValues()
         {
-            NpNs = Double.Round(Formuls.NpNs(Vin_nom, Vout), 4);
-            M_max = Double.Round(Formuls.M(Vin_nom, Vin_max), 4);
-            M_min = Double.Round(Formuls.M(Vin_nom, Vin_min), 4);
-            Rac_min = Double.Round(Formuls.Rac_min(NpNs, Vout, Pout), 4);
+            NpNs = Formuls.NpNs(Vin_max, Vout);
+            Q = Formuls.Q(NpNs, Vout, Vin_min, m);
+            Rn = Formuls.Rn(Vout, Iout);
+            Rac = Formuls.Rac(NpNs, Rn);
+            Lr = Formuls.Lr(Q, Rac, f);
+            Cr = Formuls.Cr(f, Q, Rac);
+            Lm = Formuls.Lm(Lr, m);
         }
 
         /// <summary>
@@ -84,10 +100,13 @@ namespace Shorohov
         /// </summary>
         public void UpdatingLabels()
         {
-            NpNs_Label.Text = NpNs.ToString();
-            MMax_Label.Text = M_max.ToString();
-            MMin_Label.Text = M_min.ToString();
-            RacMin_Label.Text = Rac_min.ToString() + " Ом";
+            NpNs_Label.Text = Math.Round(NpNs, 2).ToString();
+            Q_Label.Text = Math.Round(Q, 2).ToString();
+            Rn_Label.Text = Math.Round(Rn,2).ToString() + " Ом";
+            Rac_Label.Text = Math.Round(Rac, 2).ToString() + " Ом";
+            Lr_Label.Text = Math.Round(Lr * Math.Pow(10, 6), 2).ToString() + " мкГн";
+            Cr_Label.Text = Math.Round(Cr * Math.Pow(10, 6), 2).ToString() + " мкФ";
+            Lm_Label.Text = Math.Round(Lm * Math.Pow(10, 6), 2).ToString() + " мкГн";
         }
 
         /// <summary>
@@ -102,8 +121,8 @@ namespace Shorohov
 
             try
             {
-                Validator.AssertStringIsNumber(textThisElementForm, $"");
-                Validator.AssertNumberIsNotNegative(double.Parse(textThisElementForm), $"");
+                Validator.AssertStringIsNumber(textThisElementForm, $"{thisTextBox.Name}");
+                Validator.AssertNumberIsNotNegative(double.Parse(textThisElementForm), $"{thisTextBox.Name}");
             }
             catch
             {
