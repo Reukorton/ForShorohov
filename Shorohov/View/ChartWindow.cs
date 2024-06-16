@@ -40,13 +40,12 @@ namespace Shorohov.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BuildingChartButton_Click(object sender, EventArgs e)
+        private void ChatWindow_load(object sender, EventArgs e)
         {
 
-            a = 1010;
+            x = 1010;
             b = 10010;
             d = 10;
-            x = a;
 
             while (x <= b)
             {
