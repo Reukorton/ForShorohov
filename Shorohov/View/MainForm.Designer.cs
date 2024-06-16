@@ -45,14 +45,14 @@
             VinMin_TextBox = new TextBox();
             label3 = new Label();
             label34 = new Label();
-            label2 = new Label();
             Vout_TextBox = new TextBox();
             Iout_TextBox = new TextBox();
-            label20 = new Label();
+            label2 = new Label();
             label4 = new Label();
             label7 = new Label();
             label13 = new Label();
             label8 = new Label();
+            label20 = new Label();
             label21 = new Label();
             label22 = new Label();
             F_TextBox = new TextBox();
@@ -181,9 +181,9 @@
             // 
             // ChartOpenWindowButton
             // 
-            ChartOpenWindowButton.Location = new Point(249, 278);
+            ChartOpenWindowButton.Location = new Point(258, 288);
             ChartOpenWindowButton.Name = "ChartOpenWindowButton";
-            ChartOpenWindowButton.Size = new Size(102, 36);
+            ChartOpenWindowButton.Size = new Size(93, 26);
             ChartOpenWindowButton.TabIndex = 41;
             ChartOpenWindowButton.Text = "График";
             ChartOpenWindowButton.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@
             // VinMax_TextBox
             // 
             VinMax_TextBox.BackColor = SystemColors.Window;
-            VinMax_TextBox.Location = new Point(76, 156);
+            VinMax_TextBox.Location = new Point(75, 156);
             VinMax_TextBox.Name = "VinMax_TextBox";
             VinMax_TextBox.Size = new Size(139, 23);
             VinMax_TextBox.TabIndex = 5;
@@ -203,7 +203,7 @@
             // 
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label24.Location = new Point(199, 210);
+            label24.Location = new Point(220, 210);
             label24.Name = "label24";
             label24.Size = new Size(24, 25);
             label24.TabIndex = 40;
@@ -212,7 +212,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 48);
+            label5.Location = new Point(24, 48);
             label5.Name = "label5";
             label5.Size = new Size(45, 15);
             label5.TabIndex = 7;
@@ -249,7 +249,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 159);
+            label3.Location = new Point(8, 159);
             label3.Name = "label3";
             label3.Size = new Size(66, 15);
             label3.TabIndex = 4;
@@ -258,25 +258,16 @@
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new Point(6, 213);
+            label34.Location = new Point(27, 213);
             label34.Name = "label34";
             label34.Size = new Size(42, 15);
             label34.TabIndex = 38;
             label34.Text = "Iout = ";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 105);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Vin_min = ";
-            // 
             // Vout_TextBox
             // 
             Vout_TextBox.BackColor = SystemColors.Window;
-            Vout_TextBox.Location = new Point(57, 45);
+            Vout_TextBox.Location = new Point(75, 45);
             Vout_TextBox.Name = "Vout_TextBox";
             Vout_TextBox.Size = new Size(139, 23);
             Vout_TextBox.TabIndex = 8;
@@ -286,22 +277,21 @@
             // Iout_TextBox
             // 
             Iout_TextBox.BackColor = SystemColors.Window;
-            Iout_TextBox.Location = new Point(54, 210);
+            Iout_TextBox.Location = new Point(75, 210);
             Iout_TextBox.Name = "Iout_TextBox";
             Iout_TextBox.Size = new Size(139, 23);
             Iout_TextBox.TabIndex = 39;
             Iout_TextBox.TabStop = false;
             Iout_TextBox.TextChanged += TextChanged;
             // 
-            // label20
+            // label2
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.Location = new Point(212, 102);
-            label20.Name = "label20";
-            label20.Size = new Size(23, 25);
-            label20.TabIndex = 26;
-            label20.Text = "B";
+            label2.AutoSize = true;
+            label2.Location = new Point(8, 105);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Vin_min = ";
             // 
             // label4
             // 
@@ -316,7 +306,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(182, 260);
+            label7.Location = new Point(220, 262);
             label7.Name = "label7";
             label7.Size = new Size(32, 25);
             label7.TabIndex = 33;
@@ -326,7 +316,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(192, 45);
+            label13.Location = new Point(220, 45);
             label13.Name = "label13";
             label13.Size = new Size(23, 25);
             label13.TabIndex = 25;
@@ -341,11 +331,21 @@
             label8.TabIndex = 30;
             label8.Text = "Резонансная частота:";
             // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.Location = new Point(221, 102);
+            label20.Name = "label20";
+            label20.Size = new Size(23, 25);
+            label20.TabIndex = 26;
+            label20.Text = "B";
+            // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label21.Location = new Point(212, 156);
+            label21.Location = new Point(220, 156);
             label21.Name = "label21";
             label21.Size = new Size(23, 25);
             label21.TabIndex = 27;
@@ -354,7 +354,7 @@
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(6, 265);
+            label22.Location = new Point(44, 264);
             label22.Name = "label22";
             label22.Size = new Size(25, 15);
             label22.TabIndex = 31;
@@ -363,7 +363,7 @@
             // F_TextBox
             // 
             F_TextBox.BackColor = SystemColors.Window;
-            F_TextBox.Location = new Point(37, 262);
+            F_TextBox.Location = new Point(75, 262);
             F_TextBox.Name = "F_TextBox";
             F_TextBox.Size = new Size(139, 23);
             F_TextBox.TabIndex = 32;
@@ -373,9 +373,9 @@
             // Calculate_Button
             // 
             Calculate_Button.Enabled = false;
-            Calculate_Button.Location = new Point(261, 437);
+            Calculate_Button.Location = new Point(258, 445);
             Calculate_Button.Name = "Calculate_Button";
-            Calculate_Button.Size = new Size(102, 36);
+            Calculate_Button.Size = new Size(99, 28);
             Calculate_Button.TabIndex = 18;
             Calculate_Button.Text = "Рассчитать";
             Calculate_Button.UseVisualStyleBackColor = true;
@@ -393,7 +393,7 @@
             // M_TextBox
             // 
             M_TextBox.BackColor = SystemColors.Window;
-            M_TextBox.Location = new Point(37, 421);
+            M_TextBox.Location = new Point(44, 421);
             M_TextBox.Name = "M_TextBox";
             M_TextBox.Size = new Size(94, 23);
             M_TextBox.TabIndex = 36;
