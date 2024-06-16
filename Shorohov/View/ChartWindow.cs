@@ -20,16 +20,14 @@ namespace Shorohov.View
         private double _Vout;
         private double _Iout;
         private double _f;
-        private double _Cr;
 
-        public ChartWindow(double NpNs, double Vout, double Iout, double f, double Cr)
+        public ChartWindow(double NpNs, double Vout, double Iout, double f)
         {
             InitializeComponent();
             _NpNs = NpNs;
             _Vout = Vout;
             _Iout = Iout;
             _f = f;
-            _Cr = Cr;
 
             this.chart1.ChartAreas[0].AxisX.Title = "Емкость резонанского контура (нф)";
             this.chart1.ChartAreas[0].AxisY.Title = "Напряжение на резонансном конденсаторе Vcr (max) (B)";

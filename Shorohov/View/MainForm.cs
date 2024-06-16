@@ -23,7 +23,6 @@ namespace Shorohov
         private double Vin_min;
         private double Vin_max;
         private double Iout;
-        private double Pout;
         private double f;
         private double m;
         //-----------------------
@@ -54,7 +53,6 @@ namespace Shorohov
             Rn_Label.Text = "";
             Rac_Label.Text = "";
             Lr_Label.Text = "";
-            Cr_Label.Text = "";
             Lm_Label.Text = "";
         }
 
@@ -70,7 +68,6 @@ namespace Shorohov
                 VinMin_TextBox.BackColor == _correctColor &&
                 VinMax_TextBox.BackColor == _correctColor &&
                 Iout_TextBox.BackColor == _correctColor &&
-                Pout_TextBox.BackColor == _correctColor &&
                 F_TextBox.BackColor == _correctColor &&
                 M_TextBox.BackColor == _correctColor
                 )
@@ -89,9 +86,18 @@ namespace Shorohov
             Vin_min = double.Parse(VinMin_TextBox.Text);
             Vin_max = double.Parse(VinMax_TextBox.Text);
             Iout = double.Parse(Iout_TextBox.Text);
-            Pout = double.Parse(Pout_TextBox.Text);
             f = double.Parse(F_TextBox.Text);
             m = double.Parse(M_TextBox.Text);
+            Cr = double.Parse(Cr_TextBox.Text);
+        }
+
+        public void ReadingDataForChart()
+        {
+            Vout = double.Parse(Vout_TextBox.Text);
+            Vin_min = double.Parse(VinMin_TextBox.Text);
+            Vin_max = double.Parse(VinMax_TextBox.Text);
+            Iout = double.Parse(Iout_TextBox.Text);
+            f = double.Parse(F_TextBox.Text);
         }
 
         /// <summary>
@@ -103,8 +109,7 @@ namespace Shorohov
             Q = Formuls.Q(NpNs, Vout, Vin_min, m);
             Rn = Formuls.Rn(Vout, Iout);
             Rac = Formuls.Rac(NpNs, Rn);
-            Lr = Formuls.Lr(Q, Rac, f);
-            Cr = Formuls.Cr(f, Q, Rac);
+            Lr = Formuls.Lr(Cr, f);
             Lm = Formuls.Lm(Lr, m);
         }
 
@@ -118,7 +123,6 @@ namespace Shorohov
             Rn_Label.Text = Math.Round(Rn, 2).ToString() + " Ом";
             Rac_Label.Text = Math.Round(Rac, 2).ToString() + " Ом";
             Lr_Label.Text = Math.Round(Lr * Math.Pow(10, 6), 2).ToString() + " мкГн";
-            Cr_Label.Text = Math.Round(Cr * Math.Pow(10, 6), 2).ToString() + " мкФ";
             Lm_Label.Text = Math.Round(Lm * Math.Pow(10, 6), 2).ToString() + " мкГн";
         }
 
@@ -166,9 +170,13 @@ namespace Shorohov
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ChartOpenWindowButton_Click(object sender, EventArgs e)
         {
-            ChartWindow chart = new ChartWindow(this.NpNs, this.Vout, this.Iout, this.f, this.Cr);
+            ReadingDataForChart();
+
+            ChartWindow chart = new ChartWindow(Formuls.NpNs(Vin_max, Vout), this.Vout, this.Iout, this.f);
+
+            Calculate_Button.Enabled = true;
 
             chart.Show();
         }

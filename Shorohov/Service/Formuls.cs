@@ -66,9 +66,9 @@ namespace Shorohov.Service
         /// <param name="Rac">Сопротивление нагрузки по переменному току</param>
         /// <param name="f">Резонансная частота</param>
         /// <returns>Резонансная индуктинвость</returns>
-        public static double Lr(double Q, double Rac, double f)
+        public static double Lr(double Cr, double f)
         {
-            return (Q * Rac) / (2 * Math.PI * f);
+            return 1 / (4 * Math.Pow(Math.PI, 2) * Cr * Math.Pow(10, -9) * Math.Pow(f, 2));
         }
 
         /// <summary>
