@@ -1,5 +1,7 @@
 ﻿using Shorohov.Service;
-using System.ComponentModel.Design;
+using System.Reflection.Metadata.Ecma335;
+using System.Windows.Forms.DataVisualization.Charting;
+using Shorohov.View;
 
 namespace Shorohov
 {
@@ -33,6 +35,7 @@ namespace Shorohov
         private double Lr;
         private double Cr;
         private double Lm;
+
 
         public MainForm()
         {
@@ -112,7 +115,7 @@ namespace Shorohov
         {
             NpNs_Label.Text = Math.Round(NpNs, 2).ToString();
             Q_Label.Text = Math.Round(Q, 2).ToString();
-            Rn_Label.Text = Math.Round(Rn,2).ToString() + " Ом";
+            Rn_Label.Text = Math.Round(Rn, 2).ToString() + " Ом";
             Rac_Label.Text = Math.Round(Rac, 2).ToString() + " Ом";
             Lr_Label.Text = Math.Round(Lr * Math.Pow(10, 6), 2).ToString() + " мкГн";
             Cr_Label.Text = Math.Round(Cr * Math.Pow(10, 6), 2).ToString() + " мкФ";
@@ -121,7 +124,7 @@ namespace Shorohov
 
         /// <summary>
         /// Перекраска textbox в зависимости от введенных данных
-        /// </summary>
+        /// </summary> 
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private new void TextChanged(object sender, EventArgs e)
@@ -156,11 +159,18 @@ namespace Shorohov
                 CalculationValues();
                 UpdatingLabels();
             }
-            else 
+            else
             {
                 NULL_Labels();
                 MessageBox.Show("Введены некоректные значения или не введены совсем.");
-            } 
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ChartWindow chart = new ChartWindow(this.NpNs, this.Vout, this.Iout, this.f, this.Cr);
+
+            chart.Show();
         }
     }
 }

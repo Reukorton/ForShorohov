@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             groupBox1 = new GroupBox();
+            ChartOpenWindowButton = new Button();
             label24 = new Label();
             label33 = new Label();
             label34 = new Label();
@@ -86,6 +87,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(ChartOpenWindowButton);
             groupBox1.Controls.Add(label24);
             groupBox1.Controls.Add(label33);
             groupBox1.Controls.Add(label34);
@@ -121,10 +123,20 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Технические параметры ";
             // 
+            // ChartOpenWindowButton
+            // 
+            ChartOpenWindowButton.Location = new Point(152, 437);
+            ChartOpenWindowButton.Name = "ChartOpenWindowButton";
+            ChartOpenWindowButton.Size = new Size(102, 36);
+            ChartOpenWindowButton.TabIndex = 41;
+            ChartOpenWindowButton.Text = "График";
+            ChartOpenWindowButton.UseVisualStyleBackColor = true;
+            ChartOpenWindowButton.Click += button1_Click;
+            // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 14F);
+            label24.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label24.Location = new Point(199, 208);
             label24.Name = "label24";
             label24.Size = new Size(24, 25);
@@ -191,7 +203,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 14F);
+            label7.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(182, 313);
             label7.Name = "label7";
             label7.Size = new Size(32, 25);
@@ -229,7 +241,7 @@
             // label23
             // 
             label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI", 14F);
+            label23.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label23.Location = new Point(196, 260);
             label23.Name = "label23";
             label23.Size = new Size(31, 25);
@@ -239,7 +251,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 14F);
+            label21.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label21.Location = new Point(212, 154);
             label21.Name = "label21";
             label21.Size = new Size(23, 25);
@@ -249,7 +261,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 14F);
+            label20.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label20.Location = new Point(212, 100);
             label20.Name = "label20";
             label20.Size = new Size(23, 25);
@@ -259,7 +271,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 14F);
+            label13.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label13.Location = new Point(192, 46);
             label13.Name = "label13";
             label13.Size = new Size(23, 25);
@@ -684,5 +696,6 @@
         private Label label33;
         private Label label34;
         private TextBox Iout_TextBox;
+        private Button ChartOpenWindowButton;
     }
 }

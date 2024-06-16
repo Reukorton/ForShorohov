@@ -93,5 +93,10 @@ namespace Shorohov.Service
         {
             return Lr * m;
         }
+
+        public static double Vcr_max(double NpNs, double Vout, double Iout, double f, double Cr)
+        {
+            return NpNs * Vout + Iout / (4 * NpNs * f * Cr);
+        }
     }
 }
