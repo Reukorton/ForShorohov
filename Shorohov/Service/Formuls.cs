@@ -14,7 +14,7 @@ namespace Shorohov.Service
         /// <summary>
         /// Формула расчета коэффициента трансформации трансформатора
         /// </summary>
-        /// <param name="Vin_nom">Номинальное входное напряжение</param>
+        /// <param name="Vin_max">Максимальное входное напряжение</param>
         /// <param name="Vout">Выходное напряжение</param>
         /// <returns>Коэффициент трансформации трансформатора</returns>
         public static double NpNs(double Vin_max, double Vout)
@@ -62,8 +62,7 @@ namespace Shorohov.Service
         /// <summary>
         /// Формула расчета резонансной индуктинвости
         /// </summary>
-        /// <param name="Q">Коэффициент добротности</param>
-        /// <param name="Rac">Сопротивление нагрузки по переменному току</param>
+        /// <param name="Cr">Резонансная емкость</param>
         /// <param name="f">Резонансная частота</param>
         /// <returns>Резонансная индуктинвость</returns>
         public static double Lr(double Cr, double f)
@@ -94,6 +93,15 @@ namespace Shorohov.Service
             return Lr * m;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="NpNs"></param>
+        /// <param name="Vout"></param>
+        /// <param name="Iout"></param>
+        /// <param name="f"></param>
+        /// <param name="Cr"></param>
+        /// <returns></returns>
         public static double Vcr_max(double NpNs, double Vout, double Iout, double f, double Cr)
         {
             return NpNs * Vout + Iout / (4 * NpNs * f * Cr);

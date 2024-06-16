@@ -90,7 +90,10 @@ namespace Shorohov
             m = double.Parse(M_TextBox.Text);
             Cr = double.Parse(Cr_TextBox.Text);
         }
-
+        
+        /// <summary>
+        /// Считывание данных из полей технических характеристик для графика
+        /// </summary>
         public void ReadingDataForChart()
         {
             Vout = double.Parse(Vout_TextBox.Text);
@@ -170,9 +173,28 @@ namespace Shorohov
             }
         }
 
+        /// <summary>
+        /// Запуск окна для построения графика
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChartOpenWindowButton_Click(object sender, EventArgs e)
         {
-            ReadingDataForChart();
+            if (
+                Vout_TextBox.BackColor == _correctColor &&
+                VinMin_TextBox.BackColor == _correctColor &&
+                VinMax_TextBox.BackColor == _correctColor &&
+                Iout_TextBox.BackColor == _correctColor &&
+                F_TextBox.BackColor == _correctColor
+                )
+            {
+                ReadingDataForChart();
+            }
+            else
+            {
+                MessageBox.Show("Введены некоректные значения или не введены совсем.");
+                return;
+            }
 
             ChartWindow chart = new ChartWindow(Formuls.NpNs(Vin_max, Vout), this.Vout, this.Iout, this.f);
 

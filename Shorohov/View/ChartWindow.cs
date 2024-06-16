@@ -35,6 +35,11 @@ namespace Shorohov.View
             this.chart1.ChartAreas[0].AxisY.Interval = 5;
         }
 
+        /// <summary>
+        /// Построение графика на Chart
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuildingChartButton_Click(object sender, EventArgs e)
         {
 
