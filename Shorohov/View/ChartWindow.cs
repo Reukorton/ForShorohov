@@ -40,7 +40,7 @@ namespace Shorohov.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BuildingChartButton_Click(object sender, EventArgs e)
+        private void BuildingChart_OnLoad(object sender, EventArgs e)
         {
 
             a = 1010;

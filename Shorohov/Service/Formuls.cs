@@ -71,18 +71,6 @@ namespace Shorohov.Service
         }
 
         /// <summary>
-        /// Формула расчета резонансной емкости
-        /// </summary>
-        /// <param name="f">Резонансная частота</param>
-        /// <param name="Q">Коэффициент добротности</param>
-        /// <param name="Rac">Сопротивление нагрузки по переменному току</param>
-        /// <returns>Резонансная емкость</returns>
-        public static double Cr(double f, double Q, double Rac)
-        {
-            return 1 / (2 * Math.PI * f * Q * Rac);
-        }
-
-        /// <summary>
         /// Формула расчета индуктивности намагничивания
         /// </summary>
         /// <param name="Lr">Резонансная индуктинвость</param>
